@@ -1,0 +1,91 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model StateMaster.Models.Entites.State
+<style>
+    fieldset {
+        border: 2px solid black;
+        margin-left: -2px;
+        border-radius: 5px;
+        padding-left: 20px;
+        width: 100%;
+        /* border-color: black; */
+    }
+
+    legend {
+        border-color: #b65fc3e4;
+        border-radius: 5px;
+        padding: 2px 15px;
+        border: 1px solid black;
+        width: auto;
+        margin-top: -2%;
+        float: initial;
+        color: #7C4BAF;
+        font-size: 0.7rem;
+        font-weight: 600;
+    }
+</style>
+<div class="row text-center">
+    <h1>Edit State</h1>
+</div>
+
+@if (Model is null)
+{
+    <p>No State was Found With This ID</p>
+}
+
+
+
+
+<fieldset class="scheduler-border form-control">
+    <legend style="font-size: 0.8rem;" class="scheduler-border form-check-control justify-content-between fw-semibold">
+        Add New State / नया राज्य जोडे
+    </legend>
+
+    <form method="post">
+
+        <div class="row mt-2">
+            <div class="col-md-4 mb-3">
+                <label style="font-size: 0.9rem;" class="form-label"> ID <br /> पहचान </label>
+                <input type="text" style="font-size: 0.75rem; border: 1px solid #7C4BAF;" class="form-control" placeholder="" asp-for="Id" readonly />
+            </div>
+
+
+            <div class="col-md-4 mb-3">
+
+                <label style="font-size: 0.9rem;" class="form-label">Enter State Name <br /> (In English) <span style="color:red; font-weight:600;">*</span></label>
+                <input type="text" style="font-size: 0.75rem; border: 1px solid #7C4BAF;" class="form-control" placeholder="State Name In (English)" asp-for="StateNameEnglish" />
+            </div>
+            <div class="col-md-4 mb-3">
+
+                <label style="font-size: 0.9rem;" class="form-label">राज्य का नाम दर्ज करे <br /> (हिंदी में) <span style="color:red; font-weight:600;">*</span></label>
+                <input type="text" style="font-size:  0.75rem; border: 1px solid #7C4BAF;" class="form-control" placeholder="राज्य का नाम दर्ज करे" asp-for="StateNameHindi" />
+            </div>
+            <div class="col-md-4 mb-3">
+
+                <label style="font-size: 0.9rem;" class="form-label">Enter State Code / <br /> राज्य कोड दर्ज करे <span style="color:red; font-weight:600;">*</span></label>
+                <input type="text" style="font-size: 0.75rem; border: 1px solid #7C4BAF;" class="form-control" placeholder="Enter State Code" asp-for="StateNameCode" />
+            </div>
+        </div>
+        <div class="row-md-4 mb-3">
+
+            <div class="form-check">
+                <label class="form-check-label" style="font-size: 0.9rem;" for="flexCheckChecked">
+                    Status (Active/InActive) <br /> स्थिति (सक्रिय/निष्क्रिय) <span style="color:red; font-weight:600;">*</span>
+                </label>
+                <input style="font-size:  1rem;" class="form-check-input" type="checkbox" value="" id="flexCheckChecked" asp-for="Status">
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col-md-4  mb-3">
+                <button type="submit" class="btn btn-outline-success btn-border w-lg">Submit</button>
+                <button type="submit" class="btn btn-outline-Danger btn-border w-lg ms-3" asp-action="Delete" asp-controller="State">Delete</button>
+            </div>
+        </div>
+
+    </form>
+</fieldset>
