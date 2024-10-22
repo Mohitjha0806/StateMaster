@@ -3,7 +3,7 @@
 *@
 @{
 }
-
+<link href="~/css/fontawesomeall.min.css" rel="stylesheet" />
 @model StateMaster.Models.AddStateViewModel
 
 <style>
@@ -86,10 +86,10 @@
                     <div class="row-md-4 mb-3">
 
                         <div class="form-check ">
-                            <label class="form-check-label" style="font-size: 0.9rem;" for="flexCheckChecked">
+                            <label class="form-check-label" style="font-size: 0.9rem;" for="Status">
                                 Status (Active/InActive) <br /> स्थिति (सक्रिय/निष्क्रिय) <span style="color:red; font-weight:600;">*</span>
                             </label>
-                            <input style="font-size:  1rem;" class="form-check-input" type="checkbox" value="" id="flexCheckChecked" asp-for="Status">
+                            <input style="font-size:1rem;" class="form-check-input" type="checkbox" id="Status" asp-for="Status">
                         </div>
                     </div>
                     <div class="row">
