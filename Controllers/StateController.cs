@@ -34,7 +34,7 @@ namespace StateMaster.Controllers
                 Status = viewModel.Status,
             };
 
-            await dbContext.States.AddAsync(state);
+            await dbContext.State.AddAsync(state);
             await dbContext.SaveChangesAsync();
 
             return View();
@@ -43,22 +43,21 @@ namespace StateMaster.Controllers
         [HttpGet]
         public async Task<IActionResult> List()
         {
-            var states = await dbContext.States.ToListAsync();
-
-            return View(states);
+            var State = await dbContext.State.ToListAsync();
+            return View(State);
         }
 
         [HttpGet]
         public async Task<IActionResult> Edit(Guid Id)
         {
-            var state = await dbContext.States.FindAsync(Id);
+            var state = await dbContext.State.FindAsync(Id);
             return View(state);
         }
 
         [HttpPost]
         public async Task<IActionResult> Edit(State viewModel)
         {
-            var state = await dbContext.States.FindAsync(viewModel.Id);
+            var state = await dbContext.State.FindAsync(viewModel.Id);
             if (state is not null)
             {
                 state.StateNameEnglish = viewModel.StateNameEnglish;
@@ -76,11 +75,11 @@ namespace StateMaster.Controllers
         public async Task<IActionResult> Delete(State viewModel)
         {
 
-            var state = await dbContext.States.AsNoTracking()
+            var state = await dbContext.State.AsNoTracking()
                .FirstOrDefaultAsync(x => x.Id == viewModel.Id);
-            if (state is not null)
+            if (state is not null) 
             {
-                dbContext.States.Remove(viewModel);
+                dbContext.State.Remove(viewModel);
                 await dbContext.SaveChangesAsync();
             }
             return RedirectToAction("List", "State");

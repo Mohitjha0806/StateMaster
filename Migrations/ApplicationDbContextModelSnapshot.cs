@@ -45,7 +45,7 @@ namespace StateMaster.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("States");
+                    b.ToTable("State");
                 });
 #pragma warning restore 612, 618
         }
